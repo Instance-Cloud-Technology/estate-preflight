@@ -3,15 +3,15 @@
 A read-only check of your AWS organisation before Instance Cloud sets up its tooling there. It reads your
 organisation's settings and tells you what needs doing first. It changes nothing in your AWS accounts.
 
-## Run it
+## AWS
 
 In AWS CloudShell, signed in to your organisation's management account as an administrator:
 
 ```
-rm -f estate-preflight.py ~/preflight-report.json
-curl -fsSLO https://github.com/Instance-Cloud-Technology/estate-preflight/releases/latest/download/estate-preflight.py
-echo "<SHA-256 from Instance Cloud>  estate-preflight.py" | sha256sum -c - \
-  && { python3 estate-preflight.py; python3 estate-preflight.py --json > ~/preflight-report.json; }
+rm -f estate-preflight-aws.py ~/preflight-report.json
+curl -fsSLO https://github.com/Instance-Cloud-Technology/estate-preflight/releases/latest/download/estate-preflight-aws.py
+echo "<SHA-256 from Instance Cloud>  estate-preflight-aws.py" | sha256sum -c - \
+  && { python3 estate-preflight-aws.py; python3 estate-preflight-aws.py --json > ~/preflight-report.json; }
 ```
 
 Nothing runs unless the file matches the SHA-256 Instance Cloud sent you. If it doesn't match, a newer release
